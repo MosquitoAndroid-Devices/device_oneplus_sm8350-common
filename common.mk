@@ -491,5 +491,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# Enable extendrom
+ENABLE_EXTENDROM := true
+EXTENDROM_PACKAGES := "AuroraDroid AuroraServices additional_repos.xml Magisk"
+ifneq ($(WITH_GAPPS),true)
+EXTENDROM_PACKAGES += " MicrogGmsCore AuroraStore Phonesky"
+endif
+$(call inherit-product-if-exists, vendor/extendrom/config/common.mk)
+
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8350-common/sm8350-common-vendor.mk)
