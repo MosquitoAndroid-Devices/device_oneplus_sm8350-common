@@ -499,5 +499,7 @@ EXTENDROM_PACKAGES += " MicrogGmsCore AuroraStore Phonesky"
 endif
 $(call inherit-product-if-exists, vendor/extendrom/config/common.mk)
 
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8350-common/sm8350-common-vendor.mk)
