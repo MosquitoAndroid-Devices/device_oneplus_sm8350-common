@@ -491,6 +491,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# Enable extendrom
+ENABLE_EXTENDROM := true
+EXTENDROM_PACKAGES := "AuroraDroid AuroraServices additional_repos.xml Magisk"
+ifneq ($(WITH_GAPPS),true)
+EXTENDROM_PACKAGES += " MicrogGmsCore AuroraStore Phonesky"
+endif
+$(call inherit-product-if-exists, vendor/extendrom/config/common.mk)
+
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Inherit from the proprietary files makefile.
